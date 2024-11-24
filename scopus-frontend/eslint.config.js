@@ -1,21 +1,36 @@
-// eslint.config.js
+import { parse } from "@babel/eslint-parser";
+import globals from "globals";
+import eslintPluginReact from "eslint-plugin-react";
+import eslintPluginReactHooks from "eslint-plugin-react-hooks";
+
 export default [
-    {
-      files: ["src/**/*.js", "src/**/*.jsx"],
-      languageOptions: {
-        ecmaVersion: 2021,
-        sourceType: "module",
-        globals: {
-          // Definir variables globales específicas del navegador
-          window: "readonly",
-          document: "readonly",
-          navigator: "readonly"
-        }
+  {
+    languageOptions: {
+      parser: {
+        parse, // Importa el método parse directamente
       },
-      rules: {
-        "no-console": "warn",
-        "semi": ["error", "always"]
-      }
-    }
-  ];
-  
+      ecmaVersion: "latest",
+      sourceType: "module",
+      globals: {
+        ...globals.browser,
+        ...globals.es2021,
+      },
+    },
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
+    plugins: {
+      react: eslintPluginReact,
+      "react-hooks": eslintPluginReactHooks,
+    },
+    rules: {
+      "react/react-in-jsx-scope": "off",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "no-console": "warn",
+      "no-unused-vars": "warn",
+    },
+  },
+];

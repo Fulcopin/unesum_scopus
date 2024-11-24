@@ -1,9 +1,7 @@
-// src/App.js
-
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { message } from 'antd';
-import Dashboard from './components/Dashboard';
-import Login from './components/Login';
+import Dashboard from './components/Dashboard'; // Ensure the path is correct
+import Login from './components/Login'; // Ensure the path is correct
 import './App.css';
 
 const App = () => {

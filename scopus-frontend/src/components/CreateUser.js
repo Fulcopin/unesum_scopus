@@ -31,7 +31,7 @@ const CreateUser = () => {
             setRole('user');
         } catch (error) {
             message.error('Error al crear el usuario.');
-            console.error(error);
+            
         }
     };
 

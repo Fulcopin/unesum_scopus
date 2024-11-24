@@ -26,7 +26,7 @@ const ArticleSearch = () => {
             });
             setResults(response.data);
         } catch (error) {
-            console.error("Error en la búsqueda:", error);
+           
             message.error("Ocurrió un error al realizar la búsqueda.");
         } finally {
             setLoading(false);
